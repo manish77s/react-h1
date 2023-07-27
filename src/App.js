@@ -1,24 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
-
+import React, { useState } from 'react';
+import Funcomp from './Functioncompo';
+import Classcompt from './Classcompo';
 function App() {
+  const[fState,setFState]= useState(false)
+  const[cState,setCState]= useState(false)
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+   
+    <div className="App"> 
+      
+     <h1>This is Functional and Class Component</h1>
+
+     <button className="btn" onClick={()=>setFState(!fState)}>This is Function Component</button>
+   
+     <button className="btn" onClick={()=>setCState(!cState)}>This is  Class Component</button>
+     
+    <div class="container"> 
+    {fState ? <Funcomp/>: " "}
+    {cState && <Classcompt/>}     
     </div>
+     
+     </div>
   );
 }
 
